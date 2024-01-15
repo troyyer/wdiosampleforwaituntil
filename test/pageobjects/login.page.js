@@ -13,9 +13,10 @@ class LoginPage extends Page {
         return $$('#finish');
     }
 
+	//code correction as supplied in comment https://github.com/webdriverio/webdriverio/discussions/12001#discussioncomment-8125341
 async waitUntilArrayNotEmpty(webElementArray, timeout = 15000, timeoutMsg = '') {
 		await browser.waitUntil(
-			async () => await webElementArray.length >= 1,
+			async () => (await $$(webElementArray.selector)).length >= 1,
 			{ timeout, timeoutMsg }
   );
 };
